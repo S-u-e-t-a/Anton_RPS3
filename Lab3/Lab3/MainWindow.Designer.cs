@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.AUpDown = new System.Windows.Forms.NumericUpDown();
@@ -56,8 +56,12 @@
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartCO = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TableButton = new System.Windows.Forms.Button();
             this.CreateChartButton = new System.Windows.Forms.Button();
+            this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScaleUpDown)).BeginInit();
@@ -386,6 +390,8 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenFileToolStripMenuItem,
+            this.toolStripSeparator1,
             this.SaveDataToolStripMenuItem,
             this.SaveResultToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
@@ -394,6 +400,7 @@
             // 
             // SaveDataToolStripMenuItem
             // 
+            this.SaveDataToolStripMenuItem.Enabled = false;
             this.SaveDataToolStripMenuItem.Name = "SaveDataToolStripMenuItem";
             this.SaveDataToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.SaveDataToolStripMenuItem.Text = "Сохранить исходные данные";
@@ -401,9 +408,11 @@
             // 
             // SaveResultToolStripMenuItem
             // 
+            this.SaveResultToolStripMenuItem.Enabled = false;
             this.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem";
             this.SaveResultToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.SaveResultToolStripMenuItem.Text = "Сохранить результат";
+            this.SaveResultToolStripMenuItem.Click += new System.EventHandler(this.SaveResultToolStripMenuItem_Click);
             // 
             // SettingsToolStripMenuItem
             // 
@@ -421,25 +430,25 @@
             // 
             this.chartCO.BackColor = System.Drawing.Color.Transparent;
             this.chartCO.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chartCO.ChartAreas.Add(chartArea2);
+            chartArea5.Name = "ChartArea1";
+            this.chartCO.ChartAreas.Add(chartArea5);
             this.chartCO.Location = new System.Drawing.Point(12, 39);
             this.chartCO.Name = "chartCO";
             this.chartCO.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.Red;
-            series3.IsVisibleInLegend = false;
-            series3.Name = "CassiniOvalPos";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.Red;
-            series4.IsVisibleInLegend = false;
-            series4.Name = "CassiniOvalNeg";
-            this.chartCO.Series.Add(series3);
-            this.chartCO.Series.Add(series4);
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Color = System.Drawing.Color.Red;
+            series9.IsVisibleInLegend = false;
+            series9.Name = "CassiniOvalPos";
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Color = System.Drawing.Color.Red;
+            series10.IsVisibleInLegend = false;
+            series10.Name = "CassiniOvalNeg";
+            this.chartCO.Series.Add(series9);
+            this.chartCO.Series.Add(series10);
             this.chartCO.Size = new System.Drawing.Size(583, 368);
             this.chartCO.TabIndex = 4;
             // 
@@ -453,15 +462,17 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "Построение овала Кассини";
             // 
-            // button2
+            // TableButton
             // 
-            this.button2.Font = new System.Drawing.Font("Noto Sans Cond", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(601, 413);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 33);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Таблица значений";
-            this.button2.UseVisualStyleBackColor = true;
+            this.TableButton.Enabled = false;
+            this.TableButton.Font = new System.Drawing.Font("Noto Sans Cond", 11.25F, System.Drawing.FontStyle.Bold);
+            this.TableButton.Location = new System.Drawing.Point(601, 413);
+            this.TableButton.Name = "TableButton";
+            this.TableButton.Size = new System.Drawing.Size(150, 33);
+            this.TableButton.TabIndex = 35;
+            this.TableButton.Text = "Таблица значений";
+            this.TableButton.UseVisualStyleBackColor = true;
+            this.TableButton.Click += new System.EventHandler(this.TableButton_Click);
             // 
             // CreateChartButton
             // 
@@ -474,13 +485,29 @@
             this.CreateChartButton.UseVisualStyleBackColor = true;
             this.CreateChartButton.Click += new System.EventHandler(this.CreateChartButton_Click);
             // 
+            // OpenFileToolStripMenuItem
+            // 
+            this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
+            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.OpenFileToolStripMenuItem.Text = "Открыть файл";
+            this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(231, 6);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 470);
             this.Controls.Add(this.CreateChartButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.TableButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.chartCO);
             this.Controls.Add(this.pictureBox1);
@@ -531,11 +558,15 @@
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button TableButton;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartCO;
         private System.Windows.Forms.ToolStripMenuItem SaveDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveResultToolStripMenuItem;
         private System.Windows.Forms.Button CreateChartButton;
+        private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
