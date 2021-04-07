@@ -37,6 +37,12 @@ namespace Lab3
             chartCO.ChartAreas[0].AxisX.Maximum = 100;
             chartCO.ChartAreas[0].AxisY.Minimum = 0;
             chartCO.ChartAreas[0].AxisY.Maximum = 100;
+            if (InfoShowing.Default.Show == true)
+            {
+                InfoToolStripMenuItem_Click(null, null);
+                ShowInfoOnStartToolStripMenuItem.Checked = true;
+            }
+            else ShowInfoOnStartToolStripMenuItem.Checked = false;
         }
 
 
@@ -229,6 +235,32 @@ namespace Lab3
             saveFileDialog1.FileName = string.Empty;
             string answer = WorkWithFiles.MakeResult(LeftBorderUpDown.Text, RightBorderUpDown.Text, TopBorderUpDown.Text, BottomBorderUpDown.Text, ScaleUpDown.Text, CUpDown.Text, AUpDown.Text, valuesX, valuesY);
             WorkWithFiles.SaveToFile(fileOutputPath, answer);
+        }
+
+        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Автор: Гусев Антон " + Environment.NewLine +
+                "Учебное заведение: СПБГТИ(ТУ)" + Environment.NewLine +
+                "Группа: 494" + Environment.NewLine +
+                "Использование WinForms для построения графика функции и вывод таблицы значений" + Environment.NewLine +
+                "Функция: Овалы Кассини" + Environment.NewLine,
+                "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ShowInfoOnStartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ShowInfoOnStartToolStripMenuItem.Checked)
+            {
+                ShowInfoOnStartToolStripMenuItem.Checked = false;
+                InfoShowing.Default.Show = false;
+                InfoShowing.Default.Save();
+            }
+            else
+            {
+                ShowInfoOnStartToolStripMenuItem.Checked = true;
+                InfoShowing.Default.Show = true;
+                InfoShowing.Default.Save();
+            }
         }
     }
 }
