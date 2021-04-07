@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    static class CassiniOval
+    public static class CassiniOval
     {
         public static double CalculatePointOnTheGraph(double coeffA, double coeffC, double x)
         {
