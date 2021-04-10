@@ -124,6 +124,9 @@ namespace Lab3
                 valuesY.Clear();
                 chartCO.Series["CassiniOvalPos"].Points.Clear();
                 chartCO.Series["CassiniOvalNeg"].Points.Clear();
+                TableButton.Enabled = false;
+                SaveDataToolStripMenuItem.Enabled = false;
+                SaveResultToolStripMenuItem.Enabled = false;
 
             }
             catch (ArgumentOutOfRangeException)
@@ -136,6 +139,9 @@ namespace Lab3
                 valuesY.Clear();
                 chartCO.Series["CassiniOvalPos"].Points.Clear();
                 chartCO.Series["CassiniOvalNeg"].Points.Clear();
+                TableButton.Enabled = false;
+                SaveDataToolStripMenuItem.Enabled = false;
+                SaveResultToolStripMenuItem.Enabled = false;
             }
             catch (OverflowException)
             {
@@ -145,6 +151,9 @@ namespace Lab3
                 valuesY.Clear();
                 chartCO.Series["CassiniOvalPos"].Points.Clear();
                 chartCO.Series["CassiniOvalNeg"].Points.Clear();
+                TableButton.Enabled = false;
+                SaveDataToolStripMenuItem.Enabled = false;
+                SaveResultToolStripMenuItem.Enabled = false;
             }
         }
 
