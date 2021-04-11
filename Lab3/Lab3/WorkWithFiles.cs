@@ -15,7 +15,7 @@ namespace Lab3
 
         public static string MakeResult(string leftBorder, string rightBorder, string topBorder, string bottomBorder, string step, string coeffC, string coeffA, List<double> valuesX, List<double> valuesY)
         {
-            string values = null;
+            string values;
             string answer = "Левая граница: " + leftBorder + Environment.NewLine +
                             "Правая граница: " + rightBorder + Environment.NewLine +
                             "Верхняя граница: " + topBorder + Environment.NewLine +

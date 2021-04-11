@@ -193,7 +193,7 @@ namespace Lab3
 
         private void TableButton_Click(object sender, EventArgs e)
         {
-            var table = new Table(valuesX, valuesY);
+            var table = new Table(valuesX, valuesY, this);
             table.Show();
         }
 

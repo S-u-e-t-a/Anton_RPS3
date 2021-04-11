@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.AUpDown = new System.Windows.Forms.NumericUpDown();
@@ -55,6 +55,7 @@
             this.SaveDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowInfoOnStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartCO = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.CreateChartButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ShowInfoOnStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScaleUpDown)).BeginInit();
@@ -435,6 +435,15 @@
             this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.SettingsToolStripMenuItem.Text = "Настройка";
             // 
+            // ShowInfoOnStartToolStripMenuItem
+            // 
+            this.ShowInfoOnStartToolStripMenuItem.Checked = true;
+            this.ShowInfoOnStartToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowInfoOnStartToolStripMenuItem.Name = "ShowInfoOnStartToolStripMenuItem";
+            this.ShowInfoOnStartToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.ShowInfoOnStartToolStripMenuItem.Text = "Показывать справку при запуске";
+            this.ShowInfoOnStartToolStripMenuItem.Click += new System.EventHandler(this.ShowInfoOnStartToolStripMenuItem_Click);
+            // 
             // InfoToolStripMenuItem
             // 
             this.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem";
@@ -446,25 +455,25 @@
             // 
             this.chartCO.BackColor = System.Drawing.Color.Transparent;
             this.chartCO.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chartCO.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartCO.ChartAreas.Add(chartArea1);
             this.chartCO.Location = new System.Drawing.Point(12, 39);
             this.chartCO.Name = "chartCO";
             this.chartCO.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.Red;
-            series3.IsVisibleInLegend = false;
-            series3.Name = "CassiniOvalPos";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.Red;
-            series4.IsVisibleInLegend = false;
-            series4.Name = "CassiniOvalNeg";
-            this.chartCO.Series.Add(series3);
-            this.chartCO.Series.Add(series4);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Red;
+            series1.IsVisibleInLegend = false;
+            series1.Name = "CassiniOvalPos";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Red;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "CassiniOvalNeg";
+            this.chartCO.Series.Add(series1);
+            this.chartCO.Series.Add(series2);
             this.chartCO.Size = new System.Drawing.Size(583, 368);
             this.chartCO.TabIndex = 4;
             // 
@@ -505,15 +514,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ShowInfoOnStartToolStripMenuItem
-            // 
-            this.ShowInfoOnStartToolStripMenuItem.Checked = true;
-            this.ShowInfoOnStartToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowInfoOnStartToolStripMenuItem.Name = "ShowInfoOnStartToolStripMenuItem";
-            this.ShowInfoOnStartToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
-            this.ShowInfoOnStartToolStripMenuItem.Text = "Показывать справку при запуске";
-            this.ShowInfoOnStartToolStripMenuItem.Click += new System.EventHandler(this.ShowInfoOnStartToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,19 +553,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown AUpDown;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown RightBorderUpDown;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown TopBorderUpDown;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown BottomBorderUpDown;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown LeftBorderUpDown;
-        private System.Windows.Forms.NumericUpDown CUpDown;
-        private System.Windows.Forms.NumericUpDown ScaleUpDown;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
@@ -581,6 +574,13 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem ShowInfoOnStartToolStripMenuItem;
+        public System.Windows.Forms.NumericUpDown LeftBorderUpDown;
+        public System.Windows.Forms.NumericUpDown AUpDown;
+        public System.Windows.Forms.NumericUpDown RightBorderUpDown;
+        public System.Windows.Forms.NumericUpDown TopBorderUpDown;
+        public System.Windows.Forms.NumericUpDown BottomBorderUpDown;
+        public System.Windows.Forms.NumericUpDown CUpDown;
+        public System.Windows.Forms.NumericUpDown ScaleUpDown;
     }
 }
 
